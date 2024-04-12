@@ -529,7 +529,6 @@
     background-color: #f7f7f7ea; 
     display: block;
   }
-
 /*-----------------------------------*\
   #COURSE
 \*-----------------------------------*/
@@ -537,9 +536,6 @@
 .course { 
   background-color: var(--isabelline); 
   margin-top: 150px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .course-card {
@@ -547,8 +543,6 @@
   background-color: var(--white);
   border-radius: var(--radius-5);
   overflow: hidden;
-  width: calc(33.33% -20px);
-  margin-bottom: 20px;
   
 }
 
@@ -597,11 +591,6 @@
   transition: background-color 0.3s ease;
 }
 
-.course-card .badge-container {
-  display: flex;
-  gap: 5px; /* Adjust the gap between badges as needed */
-}
-
 .course-card .badge {
   background-color: var(--kappel_15);
   max-width: max-content;
@@ -613,6 +602,11 @@
   display: block;
   border-radius: var(--radius-3);
   
+}
+
+.course-card .badge-container {
+  display: flex;
+  gap: 5px; /* Adjust the gap between badges as needed */
 }
 
 .course-card .duration {
@@ -628,6 +622,9 @@
 }
 
 .course-card .card-title {
+  /* display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; */
   display: block;
   overflow: hidden;
   margin-block: 15px 8px;
@@ -699,26 +696,6 @@
   margin-block-start: 60px;
   color: aliceblue;
 }
-
-ul.grid-list {
-  margin-bottom: 30px;
-}
-
- ul#course-grid-hidden.grid {
-  display: hide;
-}
-
-
-/* #course-grid-hidden.grid-list {
-  gap: 30px; 
-  margin: 0;
-  padding: 0;
-} */
-
-/* #course-grid-hidden.grid-list li {
-  margin-left: 15px;
-  margin-right: 15px;
-} */
 
 
 

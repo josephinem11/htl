@@ -567,6 +567,7 @@ body {
     background-color: #f7f7f7ea; 
     display: block;
   }
+  
 
 /*-----------------------------------*\
   #ABOUT
@@ -739,6 +740,7 @@ body {
 .article-content p:last-child {
     font-size: 1.8rem; 
 }
+
 
 .category .section-subtitle {
     color: var(--radical-red);
@@ -1083,8 +1085,6 @@ p.section-subtitle {
   .footer-list .footer-link {
     padding-block: 5px;
   }
-
-
 
 /*-----------------------------------*\
     #BACK TO TOP

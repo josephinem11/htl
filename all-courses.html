@@ -56,22 +56,37 @@
                 <ul class="navbar-list">
 
                     <li class="navbar-item">
-                        <a href="#home" class="navbar-link" data-nav-link>Home</a>
+                        <a href="index.html" class="navbar-link" data-nav-link>Home</a>
                     </li>
 
                     <li class="navbar-item">
-                        <a href="#course_cat" class="navbar-link" data-nav-link>Course Catalogue</a>
+                        <a href="all-courses.html" class="navbar-link" data-nav-link>Course Catalogue</a>
                         <ul class="submenu">
-                            <li><a href="#">Health and Fitness</a></li>
-                            <li><a href="#">Mindfulness</a></li>
-                            <li><a href="#">Positive Psychology</a></li>
-                            <li><a href="#">Relationships</a></li>
-                            <li><a href="#">Workplace</a></li>
+                            <li class="submenu-item">
+                                <a href="#">Health and Fitness</a>
+                                <ul class="nested-submenu">
+                                    <li><a href="exercise-and-workouts-courses.html">Exercise & Workouts</a></li>
+                                    <li><a href="mental-health-courses.html">Mental Health & Well-Being</a></li>
+                                    <li><a href="nutrition-courses.html">Nutrition & Diet</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu-item">
+                                <a href="#">Positive Psychology</a>
+                                <ul class="nested-submenu">
+                                    <li><a href="gratitude-courses.html">Gratitude Practices</a></li>
+                                </ul>
+                            </li>
+                            <li class="submenu-item">
+                                <a href="#">Relationships</a>
+                                <ul class="nested-submenu">
+                                    <li><a href="friendship-courses.html">Friendships</a></li>
+                                    <li><a href="love-courses.html">Love</a></li>
+                                    <li><a href="social-connect-courses.html">Social Connectivity</a></li>
+                                </ul>
+                            </li>
                         </ul>
-                    </li>
-
                     <li class="navbar-item">
-                        <a href="#" class="navbar-link" data-nav-link>Contact</a>
+                        <a href="about-section.html" class="navbar-link" data-nav-link>About</a>
                     </li>
 
                 </ul>
@@ -79,23 +94,6 @@
             </nav>
 
             <div class="header-actions">
-
-                <button class="header-action-btn" aria-label="toggle search" title="Search">
-                    <ion-icon name="search-outline" aria-hidden="true"></ion-icon>
-                </button>
-
-                <!-- <button class="header-action-btn" aria-label="cart" title="Cart">
-                    <ion-icon name="cart-outline" aria-hidden="true"></ion-icon>
-
-                    <span class="btn-badge">0</span>
-                </button> -->
-
-                <a href="#" class="btn has-before">
-                    <span class="span">Try for free</span>
-
-                    <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
-
                 <button class="header-action-btn" aria-label="open menu" data-nav-toggler>
                     <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
                 </button>
@@ -107,210 +105,611 @@
         </div>
     </header>
 
+    <main>
+        <article>
 
-    <!-- 
+            <!-- 
         - #COURSE
       -->
 
-    <section class="section course" id="courses" aria-label="course">
-        <div class="container">
+            <section class="section course" id="courses" aria-label="course">
+                <div class="container">
 
-            <p class="section-subtitle">Popular Courses</p>
+                    <p class="section-subtitle">Popular Courses</p>
 
-            <h2 class="h2 section-title">Choose a course</h2>
+                    <h2 class="h2 section-title">Choose a course</h2>
 
-            <ul class="grid-list">
+                    <ul class="grid-list">
+                        <li>
+                            <div class="course-card">
+                                <a href="somatosensory-games-seniors.html">
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/somatosensory-games-seniors-banner.jpeg" width="370"
+                                            height="220" loading="lazy"
+                                            alt="Build Responsive Real- World Websites with HTML and CSS"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
 
-                <li>
-                    <div class="course-card">
-                        <a href="tech-on-happiness.html">
-                            <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                                <img src="./assets/images/tech-in-happiness-banner.jpeg" width="370" height="220"
-                                    loading="lazy" alt="Build Responsive Real- World Websites with HTML and CSS"
-                                    class="img-cover">
-                            </figure>
-                        </a>
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Exercise & Workouts</span>
+                                    </div>
 
-                        <!-- <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+                                    <h3 class="h3">
+                                        <a href="somatosensory-games-seniors.html" class="card-title">How Playing
+                                            Nintendo Wii Games Can Improve Seniors' Happiness</a>
+                                    </h3>
 
-                  <span class="span">3 Weeks</span>
-                </div> -->
+                                    <div class="wrapper">
 
-                        <div class="card-content">
-                            <div class="badge-container">
-                                <span class="badge">Mindfulness</span>
+
+                                        <!-- <p class="rating-text">(5.0/7 Rating)</p> -->
+
+                                    </div>
+
+                                    <data class="price" value="2">2 min read</data>
+
+                                    <ul class="card-meta-list">
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 article</span>
+                                        </li>
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="clipboard-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 quiz</span>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
                             </div>
+                        </li>
+                        <li>
+                            <div class="course-card">
+                                <a href="meditative-practices.html">
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/meditative-practices-banner.jpg" width="370"
+                                            height="220" loading="lazy" alt="Exploring the Pathways of Meditation"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
 
-                            <h3 class="h3">
-                                <a href="tech-on-happiness.html" class="card-title">The Impact of Technology on
-                                    Happiness</a>
-                            </h3>
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Exercise and Workouts</span>
+                                    </div>
 
-                            <div class="wrapper">
+                                    <h3 class="h3">
+                                        <a href="meditative-practices.html" class="card-title">Exploring the Pathways of
+                                            Meditation: Finding the Right Practice for You</a>
+                                    </h3>
 
-                                <div class="rating-wrapper">
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
+                                    <div class="wrapper">
+
+
+                                        <!-- <p class="rating-text">(4.5 /9 Rating)</p> -->
+
+                                    </div>
+
+                                    <data class="price" value="49">2 min read</data>
+
+                                    <ul class="card-meta-list">
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 article</span>
+                                        </li>
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="clipboard-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 quiz</span>
+                                        </li>
+
+                                    </ul>
+
                                 </div>
 
-                                <!-- <p class="rating-text">(5.0/7 Rating)</p> -->
-
                             </div>
+                        </li>
 
-                            <data class="price" value="2">2 min read</data>
 
-                            <ul class="card-meta-list">
 
-                                <li class="card-meta-item">
-                                    <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+                        <li>
+                            <div class="course-card">
+                                <a href="healthy-food-and-happiness.html">
 
-                                    <span class="span">1 article</span>
-                                </li>
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/healthy-food-article.jpg" width="370" height="220"
+                                            loading="lazy" alt="Do Healthy Food Choices Make You Happier?"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Nutrition & Diet</span>
+                                    </div>
 
-                                <li class="card-meta-item">
-                                    <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+                                    <h3 class="h3">
+                                        <a href="healthy-food-and-happiness.html" class="card-title">Do Healthy Food
+                                            Choices Make You Happier?</a>
+                                    </h3>
 
-                                    <span class="span">1 quiz</span>
-                                </li>
+                                    <div class="wrapper">
 
-                            </ul>
+                                        <!-- <p class="rating-text">(4.5 /9 Rating)</p> -->
 
-                        </div>
+                                    </div>
 
-                    </div>
-                </li>
+                                    <data class="price" value="49">2 min read</data>
 
-                <li>
-                    <div class="course-card">
+                                    <ul class="card-meta-list">
 
-                        <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                            <img src="./assets/images/course-2.jpg" width="370" height="220" loading="lazy"
-                                alt="Java Programming Masterclass for Software Developers" class="img-cover">
-                        </figure>
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
 
-                        <!-- <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+                                            <span class="span">1 article</span>
+                                        </li>
 
-                  <span class="span">8 Weeks</span>
-                </div> -->
+                                        <li class="card-meta-item">
+                                            <ion-icon name="clipboard-outline" aria-hidden="true"></ion-icon>
 
-                        <div class="card-content">
-                            <div class="badge-container">
-                                <span class="badge">Positive Psychology</span>
-                            </div>
+                                            <span class="span">1 quiz</span>
+                                        </li>
 
-                            <h3 class="h3">
-                                <a href="#" class="card-title">Life Satisfaction and Altruism Throughout the World</a>
-                            </h3>
+                                    </ul>
 
-                            <div class="wrapper">
-
-                                <div class="rating-wrapper">
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
                                 </div>
 
-                                <!-- <p class="rating-text">(4.5 /9 Rating)</p> -->
-
                             </div>
+                        </li>
 
-                            <data class="price" value="49">4 min read</data>
+                        <li>
+                            <div class="course-card">
+                                <a href="emotional-eating.html">
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/emotional-eating-banner.jpg" width="370" height="220"
+                                            loading="lazy" alt="The Complete Camtasia Course for Content Creators"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
 
-                            <ul class="card-meta-list">
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Nutrition & Diet</span>
+                                    </div>
 
-                                <li class="card-meta-item">
-                                    <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+                                    <h3 class="h3">
+                                        <a href="emotional-eating.html" class="card-title">Learning to Curb Emotional
+                                            Eating</a>
+                                    </h3>
 
-                                    <span class="span">1 article</span>
-                                </li>
+                                    <div class="wrapper">
 
-                                <li class="card-meta-item">
-                                    <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+                                        <!-- <p class="rating-text">(4.9 /7 Rating)</p> -->
 
-                                    <span class="span">1 quiz</span>
-                                </li>
+                                    </div>
 
-                            </ul>
+                                    <data class="price" value="4">4 min read</data>
 
-                        </div>
+                                    <ul class="card-meta-list">
 
-                    </div>
-                </li>
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
 
-                <li>
-                    <div class="course-card">
+                                            <span class="span">1 article</span>
+                                        </li>
 
-                        <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
-                            <img src="./assets/images/course-3.jpg" width="370" height="220" loading="lazy"
-                                alt="The Complete Camtasia Course for Content Creators" class="img-cover">
-                        </figure>
+                                        <li class="card-meta-item">
+                                            <ion-icon name="clipboard-outline" aria-hidden="true"></ion-icon>
 
-                        <!-- <div class="abs-badge">
-                  <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+                                            <span class="span">1 quiz</span>
+                                        </li>
 
-                  <span class="span">3 Weeks</span>
-                </div> -->
+                                    </ul>
 
-                        <div class="card-content">
-                            <div class="badge-container">
-                                <span class="badge">Health and Fitness</span>
-                            </div>
-
-                            <h3 class="h3">
-                                <a href="#" class="card-title">Higher Purpose in Life Lessens Stroke Incidences </a>
-                            </h3>
-
-                            <div class="wrapper">
-
-                                <div class="rating-wrapper">
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
-                                    <ion-icon name="star"></ion-icon>
                                 </div>
 
-                                <!-- <p class="rating-text">(4.9 /7 Rating)</p> -->
+                            </div>
+                        </li>
+                        <li>
+                            <div class="course-card">
+                                <a href="college-students-diets.html">
+
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/college-students-eating.jpg" width="370" height="220"
+                                            loading="lazy" alt="The Complete Camtasia Course for Content Creators"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
+
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Nutrition & Diet</span>
+                                    </div>
+
+                                    <h3 class="h3">
+                                        <a href="college-students-diets.html" class="card-title">What College Students
+                                            Should be Eating for Increased Happiness</a>
+                                    </h3>
+
+                                    <div class="wrapper">
+
+                                        <!-- <p class="rating-text">(4.9 /7 Rating)</p> -->
+
+                                    </div>
+
+                                    <data class="price" value="4">2 min read</data>
+
+                                    <ul class="card-meta-list">
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 article</span>
+                                        </li>
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="clipboard-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 quiz</span>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
 
                             </div>
+                        </li>
+                        <li>
+                            <div class="course-card">
+                                <a href="tech-on-happiness.html">
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/tech-in-happiness-banner.jpeg" width="370"
+                                            height="220" loading="lazy"
+                                            alt="Build Responsive Real- World Websites with HTML and CSS"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Mental Health & Well-Being</span>
+                                        <span class="badge">Social Connectivity</span>
+                                    </div>
 
-                            <data class="price" value="4">4 min read</data>
+                                    <h3 class="h3">
+                                        <a href="tech-on-happiness.html" class="card-title">The Impact of Technology on
+                                            Happiness</a>
+                                    </h3>
 
-                            <ul class="card-meta-list">
+                                    <div class="wrapper">
 
-                                <li class="card-meta-item">
-                                    <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+                                    </div>
 
-                                    <span class="span">2 Lessons</span>
-                                </li>
+                                    <data class="price" value="2">2 min read</data>
 
-                                <li class="card-meta-item">
-                                    <ion-icon name="people-outline" aria-hidden="true"></ion-icon>
+                                    <ul class="card-meta-list">
 
-                                    <span class="span">1 quiz</span>
-                                </li>
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
 
-                            </ul>
+                                            <span class="span">1 article</span>
+                                        </li>
 
-                        </div>
+                                        <li class="card-meta-item">
+                                            <ion-icon name="quiz-outline" aria-hidden="true"></ion-icon>
 
-                    </div>
-                </li>
+                                            <span class="span">1 quiz</span>
+                                        </li>
 
-            </ul>
+                                    </ul>
 
-            <a href="#" class="btn has-before">
-                <span class="span">Browse more courses</span>
 
-                <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
-            </a>
+                                </div>
+                        </li>
 
-        </div>
-    </section>
+
+                    </ul>
+
+
+                    <a href="#" class="btn has-before" id="load-more-courses">
+                        <span class="span">Browse more courses</span>
+                        <ion-icon name="arrow-forward-outline" aria-hidden="true"></ion-icon>
+                    </a>
+
+                    <!-- Second row of course cards initially hidden -->
+                    <ul class="grid-list" id="course-grid-hidden">
+                        <li>
+                            <div class="course-card">
+                                <a href="mental-health-temperature.html">
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/mental-health-temp-banner.jpg" width="370"
+                                            height="220" loading="lazy"
+                                            alt="Build Responsive Real- World Websites with HTML and CSS"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
+
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Mental Health & Well-Being</span>
+                                    </div>
+
+                                    <h3 class="h3">
+                                        <a href="mental-health-temperature.html" class="card-title">The Impact of
+                                            Temperature on Mental Health</a>
+                                    </h3>
+
+                                    <div class="wrapper">
+
+                                    </div>
+
+                                    <data class="price" value="2">3 min read</data>
+
+                                    <ul class="card-meta-list">
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 article</span>
+                                        </li>
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="clipboard-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 quiz</span>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </li>
+                        <!-- Add more course cards here -->
+                        <li>
+                            <div class="course-card">
+                                <a href="finding-joy.html">
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/finding-joy-banner.jpg" width="370" height="220"
+                                            loading="lazy" alt="Build Responsive Real- World Websites with HTML and CSS"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
+
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Gratitude Practices</span>
+                                    </div>
+
+                                    <h3 class="h3">
+                                        <a href="finding-joy.html" class="card-title">Finding Joy Throughout Life's
+                                            Challenges</a>
+                                    </h3>
+
+                                    <div class="wrapper">
+
+                                    </div>
+
+                                    <data class="price" value="2">2 min read</data>
+
+                                    <ul class="card-meta-list">
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 article</span>
+                                        </li>
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="clipboard-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 quiz</span>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="course-card">
+                                <a href="rediscovering-gratitude.html">
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/rediscovering-grat-banner.jpg" width="370"
+                                            height="220" loading="lazy" alt="Curbing Emotional Eating"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
+
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Gratitude Practices</span>
+                                    </div>
+
+                                    <h3 class="h3">
+                                        <a href="rediscovering-gratitude.html" class="card-title"> Studies that Can Help
+                                            You Rediscover Gratitude </a>
+                                    </h3>
+
+                                    <div class="wrapper">
+
+                                    </div>
+
+                                    <data class="price" value="49">4 min read</data>
+
+                                    <ul class="card-meta-list">
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 article</span>
+                                        </li>
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="clipboard-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 quiz</span>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="course-card">
+                                <a href="adult-friendships.html">
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/adult-friendship-banner.jpg" width="370" height="220"
+                                            loading="lazy" alt="Build Responsive Real- World Websites with HTML and CSS"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
+
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Friendships</span>
+                                        <span class="badge">Mental Health & Well-Being</span>
+                                    </div>
+
+                                    <h3 class="h3">
+                                        <a href="adult-friendships.html" class="card-title">The Intricate Link Between
+                                            Adult Friendship and Well-Being</a>
+                                    </h3>
+
+                                    <div class="wrapper">
+
+                                    </div>
+
+                                    <data class="price" value="2">2 min read</data>
+
+                                    <ul class="card-meta-list">
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 article</span>
+                                        </li>
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="clipboard-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 quiz</span>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="course-card">
+                                <a href="love-languages.html">
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/love-languages-banner.jpg" width="370" height="220"
+                                            loading="lazy" alt="Build Responsive Real- World Websites with HTML and CSS"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
+
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Love</span>
+                                    </div>
+
+                                    <h3 class="h3">
+                                        <a href="love-languages.html" class="card-title">The Science Behind Love
+                                            Languages</a>
+                                    </h3>
+
+                                    <div class="wrapper">
+
+                                    </div>
+
+                                    <data class="price" value="2">2 min read</data>
+
+                                    <ul class="card-meta-list">
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 article</span>
+                                        </li>
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="clipboard-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 quiz</span>
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="course-card">
+                                <a href="social-media-wellbeing.html">
+                                    <figure class="card-banner img-holder" style="--width: 370; --height: 220;">
+                                        <img src="./assets/images/social-media-wellbeing-banner.jpg" width="370"
+                                            height="220" loading="lazy"
+                                            alt="Build Responsive Real- World Websites with HTML and CSS"
+                                            class="img-cover">
+                                    </figure>
+                                </a>
+                                <div class="card-content">
+                                    <div class="badge-container">
+                                        <span class="badge">Mental Health & Well-Being</span>
+                                        <span class="badge">Social Connectivity</span>
+                                    </div>
+
+                                    <h3 class="h3">
+                                        <a href="social-media-wellbeing.html" class="card-title">How Social Media Can
+                                            Benefit Our Well-Being</a>
+                                    </h3>
+
+                                    <div class="wrapper">
+
+                                    </div>
+
+                                    <data class="price" value="2">2 min read</data>
+
+                                    <ul class="card-meta-list">
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="library-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 article</span>
+                                        </li>
+
+                                        <li class="card-meta-item">
+                                            <ion-icon name="clipboard-outline" aria-hidden="true"></ion-icon>
+
+                                            <span class="span">1 quiz</span>
+                                        </li>
+
+                                    </ul>
+
+
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!--SCRIPTS-->
+            <script src="./assets/js/all-courses.js" defer></script>
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

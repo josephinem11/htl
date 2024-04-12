@@ -232,14 +232,14 @@ body {
   font-weight: var(--fw-500);
 }
 
-.section-title {
-  --color: var(--radical-red);
+.h1.section-title {
+  --color: var(--white);
   text-align: center;
 }
 
 .section-title .span {
   display: inline-block;
-  color: var(--color);
+  color: var(--kappel);
 }
 
 .btn {
@@ -708,10 +708,18 @@ ul.navbar-list #navbar-link:hover{
   grid-template-columns: 1fr 0.8fr;
   align-items: flex-start;
   gap: 30px;
+
 }
 
+.hero-banner .align-right {
+  float: right;
+
+}
+
+
+
 .hero-banner .img-holder.one {
-  border-top-right-radius: 70px;
+  border-top-right-radius: 100px;
   border-bottom-left-radius: 110px;
 }
 
@@ -1220,7 +1228,6 @@ ul.navbar-list #navbar-link:hover{
 .footer-list .footer-link {
   padding-block: 5px;
 }
-
 
 /*-----------------------------------*\
   #BACK TO TOP

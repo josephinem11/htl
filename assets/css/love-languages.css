@@ -568,6 +568,7 @@ body {
     display: block;
   }
 
+
 /*-----------------------------------*\
   #ABOUT
 \*-----------------------------------*/
@@ -1450,7 +1451,7 @@ p.section-subtitle {
      */
 
     .footer .grid-list {
-        grid-template-columns: 1fr 0.6fr 0.6fr 0.6fr;
+        grid-template-columns: 1fr 0.6fr 0.6fr 1.2fr;
     }
 
 }
