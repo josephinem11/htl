@@ -714,6 +714,32 @@
   border-radius: var(--radius-3);
 }
 
+.course .btn {
+  margin-inline: auto;
+  margin-block-start: 60px;
+  color: aliceblue;
+}
+
+ul.grid-list {
+  margin-bottom: 30px;
+  display: hide;
+}
+
+ ul#course-grid-hidden.grid {
+  display: hide;
+}
+
+course-card {
+  /* Adjust the width to fit two cards in a row */
+  width: calc(50% - 20px); /* Assuming a 20px gap between cards */
+  margin-right: 20px; /* Add some margin between cards */
+}
+
+/* Adjust the margin for the last card in the row */
+.course-card:nth-child(2n) {
+  margin-right: 0;
+}
+
 /*-----------------------------------*\
   #MEDIA QUERIES
 \*-----------------------------------*/
