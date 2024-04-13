@@ -709,10 +709,11 @@
   line-height: 20px;
   padding: 6px 8px;
   margin-block-end: 3px;
-  font-size: 12px; /* Limit the font size */
+  font-size: 13px; /* Limit the font size */
   display: inline-block; /* Change display to inline-block */
   border-radius: var(--radius-3);
 }
+
 
 .course .btn {
   margin-inline: auto;
