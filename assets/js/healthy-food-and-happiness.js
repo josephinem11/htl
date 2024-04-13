@@ -199,6 +199,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const closeButton = document.getElementById('closeQuizModal');
   // const submitAnswerButton = document.getElementById('submitAnswer');
 
+  let quizStartTime;
+  let modalExitTime;
+  const timeElapsedEvent = new Event('timeElapsed');
 
   function resetQuiz() {
     resetState(); // Reset quiz state
@@ -209,11 +212,16 @@ document.addEventListener('DOMContentLoaded', function () {
   openModalBtn.addEventListener('click', function () {
     showModal();
     resetQuiz();
+    quizStartTime = new Date(); 
+    // trigger event
+    openModalBtn.dispatchEvent(timeElapsedEvent);
   });
 
   // Close the modal when clicking on the close button
   closeButton.addEventListener('click', function () {
     hideModal();
+    modalExitTime = new Date();
+    closeButton.dispatchEvent(timeElapsedEvent);
   });
 
   // Close the modal when clicking outside of it
@@ -240,5 +248,8 @@ document.addEventListener('DOMContentLoaded', function () {
     modalContent.classList.remove('active');
   }
 });
+
+
+
 
 

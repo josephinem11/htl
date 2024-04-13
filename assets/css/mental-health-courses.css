@@ -697,8 +697,22 @@
   color: aliceblue;
 }
 
+.course-card .badge-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow badges to wrap to the next line */
+  gap: 5px; /* Adjust the gap between badges as needed */
+}
 
-
+.course-card .badge {
+  background-color: var(--kappel_15);
+  color: var(--kappel);
+  line-height: 20px;
+  padding: 6px 8px;
+  margin-block-end: 3px;
+  font-size: 12px; /* Limit the font size */
+  display: inline-block; /* Change display to inline-block */
+  border-radius: var(--radius-3);
+}
 
 /*-----------------------------------*\
   #MEDIA QUERIES
