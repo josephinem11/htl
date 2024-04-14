@@ -1,27 +1,5 @@
 'use strict';
 
-const MongoClient = require('mongodb').MongoClient;
-
-// Connection URI
-const uri = "mongodb+srv://doadmin:26Ou9E7yP8a13lf5@db-mongodb-nyc3-83293-a22f7971.mongo.ondigitalocean.com/admin?tls=true&authSource=admin&replicaSet=db-mongodb-nyc3-83293";
-
-// Create a new MongoClient
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-
-client.connect(err => {
-  if (err) {
-    console.error('Failed to connect to MongoDB:', err);
-    return;
-  }
-  console.log('Connected to MongoDB');
-
-  // Perform database operations here
-
-  // Close the connection
-  client.close();
-});
-
-
 /**
  * Function to extract URL parameters
  */
