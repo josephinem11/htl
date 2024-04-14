@@ -186,7 +186,7 @@ function exitModal() {
 
 function calculateScore() {
   // Construct the URL with the appropriate query parameters
-  const scoreUrl = `https://hammerhead-app-5ehuo.ondigitalocean.app/app/score?session_id=${session_id}&total=${questions.length}&correct=${score}`;
+  const scoreUrl = `https://hammerhead-app-5ehuo.ondigitalocean.app/app/score/?session_id=${session_id}&total=${questions.length}&correct=${score}`;
 
   // Send a GET request to the API endpoint
   fetch(scoreUrl)
