@@ -1,6 +1,43 @@
 'use strict';
 
+const MongoClient = require('mongodb').MongoClient;
 
+// Connection URI
+const uri = "mongodb+srv://doadmin:26Ou9E7yP8a13lf5@db-mongodb-nyc3-83293-a22f7971.mongo.ondigitalocean.com/admin?tls=true&authSource=admin&replicaSet=db-mongodb-nyc3-83293";
+
+// Create a new MongoClient
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+
+client.connect(err => {
+  if (err) {
+    console.error('Failed to connect to MongoDB:', err);
+    return;
+  }
+  console.log('Connected to MongoDB');
+
+  // Perform database operations here
+
+  // Close the connection
+  client.close();
+});
+
+
+/**
+ * Function to extract URL parameters
+ */
+ const getUrlParams = function (url) {
+  const params = {};
+  const searchParams = new URLSearchParams(new URL(url).search);
+  for (const [key, value] of searchParams) {
+    params[key] = value;
+  }
+  return params;
+}
+
+
+// Capture 'SESSION_ID' from URL
+const params = getUrlParams(window.location.href);
+const session_id = params['SESSION_ID'];
 
 /**
  * add event on element
@@ -159,7 +196,30 @@ function selectAnswer(e) {
 function exitModal() {
   const modal = document.getElementById('quizModal');
   modal.style.display = 'none';
+
+  // Make a GET request to the end endpoint
+  fetch(`https://hammerhead-app-5ehuo.ondigitalocean.app/app/end/?session_id=${session_id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
 }
+
+function calculateScore() {
+  // Construct the URL with the appropriate query parameters
+  const scoreUrl = `https://hammerhead-app-5ehuo.ondigitalocean.app/app/score?session_id=session_id&total=${questions.length}&correct=${score}`;
+
+  // Send a GET request to the API endpoint
+  fetch(scoreUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+}
+
 
 function showScore() {
   resetState();
@@ -169,7 +229,11 @@ function showScore() {
 
   // Add event listener to exit modal when nextButton is clicked
   nextButton.addEventListener("click", exitModal);
+
+  // Trigger API call for score calculation
+  calculateScore();
 }
+
 
 function handleNextButton() {
   currentQuestionIndex++;
@@ -199,29 +263,48 @@ document.addEventListener('DOMContentLoaded', function () {
   const closeButton = document.getElementById('closeQuizModal');
   // const submitAnswerButton = document.getElementById('submitAnswer');
 
-  let quizStartTime;
-  let modalExitTime;
-  const timeElapsedEvent = new Event('timeElapsed');
+  // let quizStartTime;
+  // let modalExitTime;
+  // const timeElapsedEvent = new Event('timeElapsed');
 
   function resetQuiz() {
     resetState(); // Reset quiz state
     startQuiz(); // Start the quiz
   }
 
+  // // Add click event listener to open the modal
+  // openModalBtn.addEventListener('click', function () {
+  //   showModal();
+  //   resetQuiz();
+  //   quizStartTime = new Date(); 
+  //   // trigger event
+  //   openModalBtn.dispatchEvent(timeElapsedEvent);
+  // });
+
   // Add click event listener to open the modal
   openModalBtn.addEventListener('click', function () {
+    // Send GET request to start the quiz
+    fetch(`https://hammerhead-app-5ehuo.ondigitalocean.app/app/start/?session_id=${session_id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
     showModal();
     resetQuiz();
-    quizStartTime = new Date(); 
-    // trigger event
-    openModalBtn.dispatchEvent(timeElapsedEvent);
   });
+
 
   // Close the modal when clicking on the close button
   closeButton.addEventListener('click', function () {
     hideModal();
-    modalExitTime = new Date();
-    closeButton.dispatchEvent(timeElapsedEvent);
+    // Make a GET request to the endpoint
+    fetch(`https://hammerhead-app-5ehuo.ondigitalocean.app/app/end/?session_id=${session_id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
   });
 
   // Close the modal when clicking outside of it
