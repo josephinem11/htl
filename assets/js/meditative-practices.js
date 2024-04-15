@@ -1,6 +1,20 @@
 'use strict';
 
+/**
+ * Function to extract URL parameters
+ */
+ const getUrlParams = function (url) {
+  const params = {};
+  const searchParams = new URLSearchParams(new URL(url).search);
+  for (const [key, value] of searchParams) {
+    params[key] = value;
+  }
+  return params;
+}
 
+// Capture 'SESSION_ID' from URL
+const params = getUrlParams(window.location.href);
+const session_id = params['SESSION_ID'];
 
 /**
  * add event on element
@@ -159,6 +173,28 @@ function selectAnswer(e) {
 function exitModal() {
   const modal = document.getElementById('quizModal');
   modal.style.display = 'none';
+
+  // Make a GET request to the end endpoint
+  fetch(`https://hammerhead-app-5ehuo.ondigitalocean.app/app/end/?session_id=${session_id}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+}
+
+function calculateScore() {
+  // Construct the URL with the appropriate query parameters
+  const scoreUrl = `https://hammerhead-app-5ehuo.ondigitalocean.app/app/score/?session_id=${session_id}&total=${questions.length}&correct=${score}`;
+
+  // Send a GET request to the API endpoint
+  fetch(scoreUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
 }
 
 function showScore() {
@@ -169,6 +205,9 @@ function showScore() {
 
   // Add event listener to exit modal when nextButton is clicked
   nextButton.addEventListener("click", exitModal);
+
+  // Trigger API call for score calculation
+  calculateScore();
 }
 
 function handleNextButton() {
@@ -210,18 +249,28 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Add click event listener to open the modal
   openModalBtn.addEventListener('click', function () {
+    // Send GET request to start the quiz
+    fetch(`https://hammerhead-app-5ehuo.ondigitalocean.app/app/start/?session_id=${session_id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
     showModal();
     resetQuiz();
-    quizStartTime = new Date(); 
-    // trigger event
-    openModalBtn.dispatchEvent(timeElapsedEvent);
   });
+
 
   // Close the modal when clicking on the close button
   closeButton.addEventListener('click', function () {
     hideModal();
-    modalExitTime = new Date();
-    closeButton.dispatchEvent(timeElapsedEvent);
+    // Make a GET request to the endpoint
+    fetch(`https://hammerhead-app-5ehuo.ondigitalocean.app/app/end/?session_id=${session_id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
   });
 
   // Close the modal when clicking outside of it
