@@ -568,6 +568,7 @@ body {
     display: block;
   }
 
+
 /*-----------------------------------*\
   #ABOUT
 \*-----------------------------------*/
@@ -739,7 +740,6 @@ body {
 .article-content p:last-child {
     font-size: 1.8rem; 
 }
-
 
 .category .section-subtitle {
     color: var(--radical-red);
@@ -1084,6 +1084,8 @@ p.section-subtitle {
   .footer-list .footer-link {
     padding-block: 5px;
   }
+
+
 
 /*-----------------------------------*\
     #BACK TO TOP
@@ -1449,7 +1451,7 @@ p.section-subtitle {
      */
 
     .footer .grid-list {
-        grid-template-columns: 1fr 0.6fr 0.6fr 0.6fr;
+        grid-template-columns: 1fr 0.6fr 0.6fr 1.2fr;
     }
 
 }
