@@ -101,7 +101,7 @@ const questions = [
     ]
   },
   {
-    question: "Which love language is associated wtih expressing your admiration for your partner?",
+    question: "Which love language is associated with expressing your admiration for your partner?",
     answers: [
       { text: "Words of Affirmation", correct: true },
       { text: "Physical Touch", correct: false },
@@ -273,7 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     })
   });
-  
+
   // Close the modal when clicking outside of it
   window.addEventListener('click', function (event) {
     if (event.target === modal) {
