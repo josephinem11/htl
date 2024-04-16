@@ -56,8 +56,6 @@ const closeNavbar = function () {
 
 addEventOnElem(navLinks, "click", closeNavbar);
 
-
-
 /**
  * header active when scroll down to 100px
  */
