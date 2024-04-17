@@ -17,19 +17,36 @@
 // const params = getUrlParams(window.location.href);
 // const session_id = params['SESSION_ID'];
 
-function generateSessionId(length) {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  const charactersLength = characters.length;
-  let sessionId = '';
-  for (let i = 0; i < length; i++) {
-    sessionId += characters.charAt(Math.floor(Math.random() * charactersLength));
+// function generateSessionId(length) {
+//   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+//   const charactersLength = characters.length;
+//   let sessionId = '';
+//   for (let i = 0; i < length; i++) {
+//     sessionId += characters.charAt(Math.floor(Math.random() * charactersLength));
+//   }
+//   return sessionId;
+// }
+
+// // Example usage:
+// const session_id = generateSessionId(10); // Generates a session ID with length 10
+
+
+// Define a sample URL with the SESSION_ID parameter
+const sampleUrl = 'https://example.com?PROLIFIC_PID=123&STUDY_ID=456&SESSION_ID=789';
+
+// Define the getUrlParams function
+const getUrlParams = function (url) {
+  const params = {};
+  const searchParams = new URLSearchParams(new URL(url).search);
+  for (const [key, value] of searchParams) {
+    params[key] = value;
   }
-  return sessionId;
-}
+  return params;
+};
 
-// Example usage:
-const session_id = generateSessionId(10); // Generates a session ID with length 10
-
+// Capture parameters from the sample URL
+const params = getUrlParams(sampleUrl);
+const session_id = params['SESSION_ID'];
 
 
 /**
