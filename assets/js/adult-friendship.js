@@ -73,6 +73,8 @@
 // });
 
 
+let session_id; // Declare session_id in a higher scope
+
 // Define the getUrlParams function
 const getUrlParams = function (url) {
   const params = {};
@@ -89,8 +91,8 @@ const generateRandomSampleUrls = function (count) {
   for (let i = 0; i < count; i++) {
     const PROLIFIC_PID = Math.floor(Math.random() * 1000);
     const STUDY_ID = Math.floor(Math.random() * 1000);
-    const SESSION_ID = Math.floor(Math.random() * 1000);
-    const url = `https://example.com?PROLIFIC_PID=${PROLIFIC_PID}&STUDY_ID=${STUDY_ID}&SESSION_ID=${SESSION_ID}`;
+    session_id = Math.floor(Math.random() * 1000); // Assign session_id in generateRandomSampleUrls
+    const url = `https://example.com?PROLIFIC_PID=${PROLIFIC_PID}&STUDY_ID=${STUDY_ID}&SESSION_ID=${session_id}`;
     urls.push(url);
   }
   return urls;
@@ -102,11 +104,12 @@ const sampleUrls = generateRandomSampleUrls(5);
 // Iterate over each sample URL and capture the session ID
 sampleUrls.forEach(url => {
   const params = getUrlParams(url);
-  const session_id = params['SESSION_ID'];
-
+  session_id = params['SESSION_ID']; // Update session_id variable
   // Use session_id variable here, for example:
   console.log(session_id);
 });
+
+// Now session_id is accessible here and can be used in fetch calls or other parts of your code
 
 /**
  * add event on element
