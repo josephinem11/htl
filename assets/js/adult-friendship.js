@@ -3,113 +3,61 @@
 /**
  * Function to extract URL parameters
  */
-//  const getUrlParams = function (url) {
-//   const params = {};
-//   const searchParams = new URLSearchParams(new URL(url).search);
-//   for (const [key, value] of searchParams) {
-//     params[key] = value;
-//   }
-//   return params;
-// }
-
-
-// // Capture 'SESSION_ID' from URL
-// const params = getUrlParams(window.location.href);
-// const session_id = params['SESSION_ID'];
-
-// function generateSessionId(length) {
-//   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-//   const charactersLength = characters.length;
-//   let sessionId = '';
-//   for (let i = 0; i < length; i++) {
-//     sessionId += characters.charAt(Math.floor(Math.random() * charactersLength));
-//   }
-//   return sessionId;
-// }
-
-// // Example usage:
-// const session_id = generateSessionId(10); // Generates a session ID with length 10
-
-
-// Define a sample URL with the SESSION_ID parameter
-// const sampleUrl = 'https://example.com?PROLIFIC_PID=123&STUDY_ID=456&SESSION_ID=789';
-
-// // Define the getUrlParams function
-// const getUrlParams = function (url) {
-//   const params = {};
-//   const searchParams = new URLSearchParams(new URL(url).search);
-//   for (const [key, value] of searchParams) {
-//     params[key] = value;
-//   }
-//   return params;
-// };
-
-// // // Capture parameters from the sample URL
-// const params = getUrlParams(sampleUrl);
-// const session_id = params['SESSION_ID'];
-
-// const sampleUrls = [
-//   'https://example.com?PROLIFIC_PID=123&STUDY_ID=456&SESSION_ID=789',
-//   'https://example.com?PROLIFIC_PID=456&STUDY_ID=789&SESSION_ID=123',
-//   'https://example.com?PROLIFIC_PID=789&STUDY_ID=123&SESSION_ID=456',
-//   'https://example.com?PROLIFIC_PID=abc&STUDY_ID=def&SESSION_ID=ghi',
-//   'https://example.com?PROLIFIC_PID=def&STUDY_ID=ghi&SESSION_ID=abc',
-// ];
-
-// // Define the getUrlParams function
-// const getUrlParams = function (url) {
-//   const params = {};
-//   const searchParams = new URLSearchParams(new URL(url).search);
-//   for (const [key, value] of searchParams) {
-//     params[key] = value;
-//   }
-//   return params;
-// };
-
-// sampleUrls.forEach((_, urlIndex) => {
-//   const url = sampleUrls[urlIndex];
-//   const params = getUrlParams(url);
-//   const session_id = params['SESSION_ID'];
-// });
-
-
-let session_id; // Declare session_id in a higher scope
-
-// Define the getUrlParams function
-const getUrlParams = function (url) {
+ const getUrlParams = function (url) {
   const params = {};
   const searchParams = new URLSearchParams(new URL(url).search);
   for (const [key, value] of searchParams) {
     params[key] = value;
   }
   return params;
-};
+}
 
-// Function to generate random sample URLs
-const generateRandomSampleUrls = function (count) {
-  const urls = [];
-  for (let i = 0; i < count; i++) {
-    const PROLIFIC_PID = Math.floor(Math.random() * 1000);
-    const STUDY_ID = Math.floor(Math.random() * 1000);
-    session_id = Math.floor(Math.random() * 1000); // Assign session_id in generateRandomSampleUrls
-    const url = `https://example.com?PROLIFIC_PID=${PROLIFIC_PID}&STUDY_ID=${STUDY_ID}&SESSION_ID=${session_id}`;
-    urls.push(url);
-  }
-  return urls;
-};
 
-// Generate random sample URLs
-const sampleUrls = generateRandomSampleUrls(5);
+// Capture 'SESSION_ID' from URL
+const params = getUrlParams(window.location.href);
+const session_id = params['SESSION_ID'];
 
-// Iterate over each sample URL and capture the session ID
-sampleUrls.forEach(url => {
-  const params = getUrlParams(url);
-  session_id = params['SESSION_ID']; // Update session_id variable
-  // Use session_id variable here, for example:
-  console.log(session_id);
-});
 
-// Now session_id is accessible here and can be used in fetch calls or other parts of your code
+/**
+ * TESTING PURPOSES 
+ */
+
+// let session_id; // Declare session_id in a higher scope
+
+// // Define the getUrlParams function
+// const getUrlParams = function (url) {
+//   const params = {};
+//   const searchParams = new URLSearchParams(new URL(url).search);
+//   for (const [key, value] of searchParams) {
+//     params[key] = value;
+//   }
+//   return params;
+// };
+
+// // Function to generate random sample URLs
+// const generateRandomSampleUrls = function (count) {
+//   const urls = [];
+//   for (let i = 0; i < count; i++) {
+//     const PROLIFIC_PID = Math.floor(Math.random() * 1000);
+//     const STUDY_ID = Math.floor(Math.random() * 1000);
+//     session_id = Math.floor(Math.random() * 1000); // Assign session_id in generateRandomSampleUrls
+//     const url = `https://example.com?PROLIFIC_PID=${PROLIFIC_PID}&STUDY_ID=${STUDY_ID}&SESSION_ID=${session_id}`;
+//     urls.push(url);
+//   }
+//   return urls;
+// };
+
+// // Generate random sample URLs
+// const sampleUrls = generateRandomSampleUrls(5);
+
+// // Iterate over each sample URL and capture the session ID
+// sampleUrls.forEach(url => {
+//   const params = getUrlParams(url);
+//   session_id = params['SESSION_ID']; // Update session_id variable
+//   // Use session_id variable here, for example:
+//   console.log(session_id);
+// });
+
 
 /**
  * add event on element
