@@ -13,7 +13,7 @@
 // }
 
 
-// Capture 'SESSION_ID' from URL
+// // Capture 'SESSION_ID' from URL
 // const params = getUrlParams(window.location.href);
 // const session_id = params['SESSION_ID'];
 
@@ -31,30 +31,8 @@
 // const session_id = generateSessionId(10); // Generates a session ID with length 10
 
 
-// // Define a sample URL with the SESSION_ID parameter
-// const sampleUrl = 'https://example.com?PROLIFIC_PID=123&STUDY_ID=456&SESSION_ID=789';
-
-// // Define the getUrlParams function
-// const getUrlParams = function (url) {
-//   const params = {};
-//   const searchParams = new URLSearchParams(new URL(url).search);
-//   for (const [key, value] of searchParams) {
-//     params[key] = value;
-//   }
-//   return params;
-// };
-
-// // Capture parameters from the sample URL
-// const params = getUrlParams(sampleUrl);
-// const session_id = params['SESSION_ID'];
-
-const sampleUrls = [
-  'https://example.com?PROLIFIC_PID=123&STUDY_ID=456&SESSION_ID=789',
-  'https://example.com?PROLIFIC_PID=456&STUDY_ID=789&SESSION_ID=123',
-  'https://example.com?PROLIFIC_PID=789&STUDY_ID=123&SESSION_ID=456',
-  'https://example.com?PROLIFIC_PID=abc&STUDY_ID=def&SESSION_ID=ghi',
-  'https://example.com?PROLIFIC_PID=def&STUDY_ID=ghi&SESSION_ID=abc',
-];
+// Define a sample URL with the SESSION_ID parameter
+const sampleUrl = 'https://example.com?PROLIFIC_PID=123&STUDY_ID=456&SESSION_ID=789';
 
 // Define the getUrlParams function
 const getUrlParams = function (url) {
@@ -66,11 +44,33 @@ const getUrlParams = function (url) {
   return params;
 };
 
-sampleUrls.forEach((_, urlIndex) => {
-  const url = sampleUrls[urlIndex];
-  const params = getUrlParams(url);
-  const session_id = params['SESSION_ID'];
-});
+// // Capture parameters from the sample URL
+const params = getUrlParams(sampleUrl);
+const session_id = params['SESSION_ID'];
+
+// const sampleUrls = [
+//   'https://example.com?PROLIFIC_PID=123&STUDY_ID=456&SESSION_ID=789',
+//   'https://example.com?PROLIFIC_PID=456&STUDY_ID=789&SESSION_ID=123',
+//   'https://example.com?PROLIFIC_PID=789&STUDY_ID=123&SESSION_ID=456',
+//   'https://example.com?PROLIFIC_PID=abc&STUDY_ID=def&SESSION_ID=ghi',
+//   'https://example.com?PROLIFIC_PID=def&STUDY_ID=ghi&SESSION_ID=abc',
+// ];
+
+// // Define the getUrlParams function
+// const getUrlParams = function (url) {
+//   const params = {};
+//   const searchParams = new URLSearchParams(new URL(url).search);
+//   for (const [key, value] of searchParams) {
+//     params[key] = value;
+//   }
+//   return params;
+// };
+
+// sampleUrls.forEach((_, urlIndex) => {
+//   const url = sampleUrls[urlIndex];
+//   const params = getUrlParams(url);
+//   const session_id = params['SESSION_ID'];
+// });
 
 
 /**
