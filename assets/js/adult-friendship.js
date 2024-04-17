@@ -106,6 +106,7 @@ sampleUrls.forEach(url => {
 
   // Use session_id variable here, for example:
   console.log(session_id);
+});
 
 /**
  * add event on element
