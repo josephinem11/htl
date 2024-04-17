@@ -103,8 +103,9 @@ const sampleUrls = generateRandomSampleUrls(5);
 sampleUrls.forEach(url => {
   const params = getUrlParams(url);
   const session_id = params['SESSION_ID'];
-});
 
+  // Use session_id variable here, for example:
+  console.log(session_id);
 
 /**
  * add event on element
