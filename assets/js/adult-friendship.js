@@ -73,45 +73,37 @@
 // });
 
 
-/**
- * Function to generate random sample URLs with session IDs
- * @param {number} count - The number of sample URLs to generate
- * @returns {string[]} An array of random sample URLs
- */
- const generateRandomSampleUrls = (count) => {
-  const sampleUrls = [];
-
-  for (let i = 0; i < count; i++) {
-    const PROLIFIC_PID = generateRandomNumber(100, 999);
-    const STUDY_ID = generateRandomNumber(100, 999);
-    const SESSION_ID = generateRandomNumber(100, 999);
-
-    const url = `https://example.com?PROLIFIC_PID=${PROLIFIC_PID}&STUDY_ID=${STUDY_ID}&SESSION_ID=${SESSION_ID}`;
-    sampleUrls.push(url);
-  }
-
-  return sampleUrls;
-};
-
-/**
- * Function to generate a random number within a specified range
- * @param {number} min - The minimum value of the range (inclusive)
- * @param {number} max - The maximum value of the range (inclusive)
- * @returns {number} A random number within the specified range
- */
- const generateRandomNumber = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
+// Define the getUrlParams function
 const getUrlParams = function (url) {
-    const params = {};
-    const searchParams = new URLSearchParams(new URL(url).search);
-    for (const [key, value] of searchParams) {
-      params[key] = value;
-    }
-    return params;
-  };
+  const params = {};
+  const searchParams = new URLSearchParams(new URL(url).search);
+  for (const [key, value] of searchParams) {
+    params[key] = value;
+  }
+  return params;
+};
 
+// Function to generate random sample URLs
+const generateRandomSampleUrls = function (count) {
+  const urls = [];
+  for (let i = 0; i < count; i++) {
+    const PROLIFIC_PID = Math.floor(Math.random() * 1000);
+    const STUDY_ID = Math.floor(Math.random() * 1000);
+    const SESSION_ID = Math.floor(Math.random() * 1000);
+    const url = `https://example.com?PROLIFIC_PID=${PROLIFIC_PID}&STUDY_ID=${STUDY_ID}&SESSION_ID=${SESSION_ID}`;
+    urls.push(url);
+  }
+  return urls;
+};
+
+// Generate random sample URLs
+const sampleUrls = generateRandomSampleUrls(5);
+
+// Iterate over each sample URL and capture the session ID
+sampleUrls.forEach(url => {
+  const params = getUrlParams(url);
+  const session_id = params['SESSION_ID'];
+});
 
 
 /**
