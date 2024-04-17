@@ -66,11 +66,10 @@ const getUrlParams = function (url) {
   return params;
 };
 
-// Iterate over each sample URL and capture the session ID
-sampleUrls.forEach((url, index) => {
+sampleUrls.forEach((_, urlIndex) => {
+  const url = sampleUrls[urlIndex];
   const params = getUrlParams(url);
   const session_id = params['SESSION_ID'];
-  
 });
 
 
