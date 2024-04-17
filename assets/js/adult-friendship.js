@@ -99,9 +99,18 @@
  * @param {number} max - The maximum value of the range (inclusive)
  * @returns {number} A random number within the specified range
  */
-const generateRandomNumber = (min, max) => {
+ const generateRandomNumber = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+const getUrlParams = function (url) {
+    const params = {};
+    const searchParams = new URLSearchParams(new URL(url).search);
+    for (const [key, value] of searchParams) {
+      params[key] = value;
+    }
+    return params;
+  };
 
 
 
