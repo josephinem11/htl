@@ -233,7 +233,7 @@ body {
 }
 
 .section-title {
-  --color: blue;
+  --color: var(--kappel);
   text-align: center;
 }
 
