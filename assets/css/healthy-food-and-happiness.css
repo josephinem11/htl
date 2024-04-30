@@ -851,12 +851,9 @@ p.section-subtitle {
 }
 
 .quiz-btn:active {
-    background-color: #fff;
-    /* Keep the background color unchanged */
-    color: #222;
-    /* Keep the text color unchanged */
+    background-color: grey; /* Change background color to grey when button is active */
+    color: #222; /* Keep the text color unchanged */
 }
-
 
 .quiz-btn:hover:not([disabled]) {
     background-color: black;
@@ -868,25 +865,25 @@ p.section-subtitle {
 }
 
 .quiz-btn.correct {
-    background: #9aeabc;
-    border: 1px solid #7abc97;
+    /* Remove background and border color for correct answers */
+    background: transparent;
+    border: 1px solid rgb(192, 192, 192);
 }
 
-/* .quiz-btn.correct:hover{
+.quiz-btn.correct:hover{
     background-color: black;
     color: white;
-} */
-
+} 
 
 .quiz-btn.incorrect {
-    background: #ff9393;
-    border: 1px solid #d28080;
-}
+    background: transparent;
+    border: 1px solid rgb(192, 192, 192);
+} 
 
-/* .quiz-btn.incorrect:hover{
+.quiz-btn.incorrect:hover{
     background-color: black;
     color: white;
-} */
+} 
 
 
 #quiz-next {

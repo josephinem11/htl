@@ -117,6 +117,68 @@ const nextButton = document.getElementById("quiz-next");
 let currentQuestionIndex = 0;
 let score = 0;
 
+let openModalTime; // Declare openModalTime as a global variable
+let exitModalTime; // Declare exitModalTime as a global variable
+let closeModalTime;
+
+let participantData = {
+  participant: localStorage.getItem('PROLIFIC_PID'),
+  openModalTime: null,
+  openModalDate: null,
+  closeModalTime: null,
+  closeModalDate: null,
+  exitModalTime: null,
+  exitModalDate: null,
+  score: null,
+  totalQuestions: null,
+  percentageScore: null,
+  courseTitle: document.title
+};
+
+
+function generateRandomString(length) {
+  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let randomString = '';
+  for (let i = 0; i < length; i++) {
+    randomString += characters.charAt(Math.floor(Math.random() * characters.length));
+  }
+  return randomString;
+}
+
+function sendParticipantData() {
+  // Check if we have captured either closeModalTime or exitModalTime
+  if (participantData.closeModalTime || participantData.exitModalTime) {
+    const dataAsString = JSON.stringify(participantData);
+    console.log(dataAsString);
+
+    // Generate a random filename
+    const filename = generateRandomString(10);
+    console.log(filename)
+
+    // Send data to DataPipe
+    fetch("https://pipe.jspsych.org/api/data/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "*/*",
+      },
+      body: JSON.stringify({
+        experimentID: "Ba31pR7ZH2RG",
+        filename: filename + "-data.json",
+        data: dataAsString,
+      })
+    }).then(response => {
+      console.log(response);
+      if (!response.ok) {
+        throw new Error('Network response was not ok: ' + response.statusText);
+      }
+      console.log('Participant data sent to DataPipe successfully');
+    }).catch(error => {
+      console.error('There was a problem sending participant data to DataPipe:', error);
+    });
+  }
+}
+
 function startQuiz() {
   currentQuestionIndex = 0;
   score = 0;
@@ -150,50 +212,72 @@ function resetState() {
   }
 }
 
+// function selectAnswer(e) {
+//   const selectedBtn = e.target;
+//   const isCorrect = selectedBtn.dataset.correct === "true"
+//   if (isCorrect) {
+//     selectedBtn.classList.add("correct");
+//     score++;
+//   }
+//   else {
+//     selectedBtn.classList.add("incorrect");
+//   }
+//   Array.from(answerButtons.children).forEach(button => {
+//     if (button.dataset.correct === "true") {
+//       button.classList.add("correct");
+//     }
+//     button.disabled = true;
+//   });
+//   nextButton.style.display = "block";
+// }
+
 function selectAnswer(e) {
   const selectedBtn = e.target;
-  const isCorrect = selectedBtn.dataset.correct === "true"
+  const isCorrect = selectedBtn.dataset.correct === "true";
   if (isCorrect) {
-    selectedBtn.classList.add("correct");
-    score++;
-  }
-  else {
-    selectedBtn.classList.add("incorrect");
+    score++; // Increment score if the selected answer is correct
   }
   Array.from(answerButtons.children).forEach(button => {
-    if (button.dataset.correct === "true") {
-      button.classList.add("correct");
-    }
-    button.disabled = true;
+    button.disabled = true; // Disable all answer buttons after one is selected
   });
-  nextButton.style.display = "block";
+  handleNextButton(); // Call function to handle displaying the next question or final score
 }
 
+
+// Define exitModal function
 function exitModal() {
   const modal = document.getElementById('quizModal');
   modal.style.display = 'none';
+  const exitModalTime = Date.now();
+  console.log("Exit modal time:", exitModalTime);
 
-  // Make a GET request to the end endpoint
-  fetch(`https://hammerhead-app-5ehuo.ondigitalocean.app/app/end/?session_id=${session_id}`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
+  const exitModalDate = new Date(exitModalTime);
+  console.log("Exit modal date:", exitModalDate);
+
+  const participant = localStorage.getItem('PROLIFIC_PID');
+  console.log(participant);
+
+  // Update participantData
+  participantData.exitModalTime = exitModalTime;
+  participantData.exitModalDate = exitModalDate;
+
+  sendParticipantData();
 }
 
-function calculateScore() {
-  // Construct the URL with the appropriate query parameters
-  const scoreUrl = `https://hammerhead-app-5ehuo.ondigitalocean.app/app/score/?session_id=${session_id}&total=${questions.length}&correct=${score}`;
+// Define calculateAndSendScore function
+function calculateAndSendScore() {
+  // Calculate the score as a percentage
+  const percentageScore = (score / questions.length) * 100;
+  console.log('Score:', score);
+  console.log('Percentage Score:', percentageScore);
+  
+  const participant = localStorage.getItem('PROLIFIC_PID');
+  console.log(participant);
 
-  // Send a GET request to the API endpoint
-  fetch(scoreUrl)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
+  // Update participantData
+  participantData.score = score;
+  participantData.totalQuestions = questions.length;
+  participantData.percentageScore = percentageScore;
 }
 
 function showScore() {
@@ -206,7 +290,7 @@ function showScore() {
   nextButton.addEventListener("click", exitModal);
 
   // Trigger API call for score calculation
-  calculateScore();
+  calculateAndSendScore();
 }
 
 function handleNextButton() {
@@ -235,50 +319,72 @@ document.addEventListener('DOMContentLoaded', function () {
   const openModalBtn = document.getElementById('openQuizModal');
   const modalContent = document.querySelector('.modal-content');
   const closeButton = document.getElementById('closeQuizModal');
-  // const submitAnswerButton = document.getElementById('submitAnswer');
 
-  let quizStartTime;
-  let modalExitTime;
-  const timeElapsedEvent = new Event('timeElapsed');
+  // let quizStartTime;
+  // let modalExitTime;
+  // const timeElapsedEvent = new Event('timeElapsed');
 
   function resetQuiz() {
     resetState(); // Reset quiz state
     startQuiz(); // Start the quiz
   }
 
-  // Add click event listener to open the modal
-  openModalBtn.addEventListener('click', function () {
+  function openModal() {
     showModal();
     resetQuiz();
-    quizStartTime = new Date(); 
-    // trigger event
-    openModalBtn.dispatchEvent(timeElapsedEvent);
-  });
+    const openModalTime = Date.now();
+    console.log("Open modal time: ", openModalTime);
+  
+    const openModalDate = new Date(openModalTime);
+    console.log("Open modal date: ", openModalDate);
+  
+    const participant = localStorage.getItem('PROLIFIC_PID');
+    console.log(participant);
+  
+    // Update participantData
+    participantData.openModalTime = openModalTime;
+    participantData.openModalDate = openModalDate;
+  }
+  
+  // Add event listener for openModalBtn
+  openModalBtn.addEventListener('click', openModal);
 
-  // Add click event listener to open the modal
-  openModalBtn.addEventListener('click', function () {
-    // Send GET request to start the quiz
-    fetch(`https://hammerhead-app-5ehuo.ondigitalocean.app/app/start/?session_id=${session_id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-    showModal();
-    resetQuiz();
-  });
-
-
-  // Close the modal when clicking on the close button
-  closeButton.addEventListener('click', function () {
+  function closeModal(event) {
     hideModal();
-    // Make a GET request to the endpoint
-    fetch(`https://hammerhead-app-5ehuo.ondigitalocean.app/app/end/?session_id=${session_id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    })
+  
+    // Check if the modal was closed using the close button
+    const closeButtonClicked = event.target === closeButton;
+  
+    if (closeButtonClicked) {
+      const closeModalTime = Date.now(); // Capture timestamp when close modal is clicked
+      console.log("Close modal time: ", closeModalTime);
+  
+      const closeModalDate = new Date(closeModalTime);
+      console.log("Close modal date: ", closeModalDate);
+  
+      const participant = localStorage.getItem('PROLIFIC_PID');
+      console.log(participant);
+  
+      // Update participantData only if the modal was closed using the close button
+      participantData.closeModalTime = closeModalTime;
+      participantData.closeModalDate = closeModalDate;
+  
+      sendParticipantData();
+    } else {
+      // If the modal was closed without using the close button, keep closeModalTime and closeModalDate as null
+      participantData.closeModalTime = null;
+      participantData.closeModalDate = null;
+    }
+  }
+  
+
+  closeButton.addEventListener('click', closeModal);
+
+  // Close the modal when clicking outside of it
+  window.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      hideModal();
+    }
   });
 
   // Prevent the modal from closing when clicking inside it

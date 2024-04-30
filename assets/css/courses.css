@@ -537,9 +537,6 @@
 .course { 
   background-color: var(--isabelline); 
   margin-top: 150px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
 }
 
 .course-card {
@@ -547,9 +544,12 @@
   background-color: var(--white);
   border-radius: var(--radius-5);
   overflow: hidden;
-  width: calc(33.33% -20px);
   margin-bottom: 20px;
   
+}
+
+.course-card:last-child {
+  margin-right: 0; /* Remove margin for the last card */
 }
 
 .course-card .banner {
@@ -586,20 +586,19 @@
 }
 
 .course-card .card-content { 
-  padding: 25px; 
+  /* padding: 25px; 
   transition: background-color 0.3s ease;
-  border-radius: var(--radius-3);
+  border-radius: var(--radius-3); */
+    width: 100%; /* Make the card content full width */
+    padding: 25px; /* Add padding to the card content */
+    background-color: var(--white); /* Set background color */
+    border-radius: var(--radius-5); /* Add border-radius */
 }
 
 .course-card:hover .card-content {
   background-color: #f7f7f7ea;
   border-radius: var(--radius-3);
   transition: background-color 0.3s ease;
-}
-
-.course-card .badge-container {
-  display: flex;
-  gap: 5px; /* Adjust the gap between badges as needed */
 }
 
 .course-card .badge {
@@ -615,6 +614,11 @@
   
 }
 
+.course-card .badge-container {
+  display: flex;
+  gap: 5px; /* Adjust the gap between badges as needed */
+}
+
 .course-card .duration {
   background-color: var(--selective-yellow);
   max-width: max-content;
@@ -628,13 +632,16 @@
 }
 
 .course-card .card-title {
+  /* display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; */
   display: block;
   overflow: hidden;
-  margin-block: 15px 8px;
+  margin-block: 7px 5px;
   transition: var(--transition-1);
   text-align: left;
   word-wrap: break-word; 
-  height: 3.6em; /* Adjust the height to fit the content */
+  height: 1.5em; /* Adjust the height to fit the content */
   line-height: 1.2em;
 }
 
@@ -694,17 +701,29 @@
   font-size: var(--fs-7);
 }
 
-.course-card .badge-container span.badge-oversized {
+.course .btn {
+  margin-inline: auto;
+  margin-block-start: 60px;
+  color: aliceblue;
+}
+
+.course-card .badge-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow badges to wrap to the next line */
+  gap: 5px; /* Adjust the gap between badges as needed */
+}
+
+.course-card .badge {
   background-color: var(--kappel_15);
-  max-width: max-content;
   color: var(--kappel);
   line-height: 20px;
-  padding-inline: 10px;
+  padding: 6px 8px;
   margin-block-end: 3px;
-  font-size: 11px;
-  display: block;
+  font-size: 13px; /* Limit the font size */
+  display: inline-block; /* Change display to inline-block */
   border-radius: var(--radius-3);
 }
+
 
 .course .btn {
   margin-inline: auto;
@@ -714,6 +733,7 @@
 
 ul.grid-list {
   margin-bottom: 30px;
+  display: hide;
 }
 
  ul#course-grid-hidden.grid {
@@ -730,20 +750,6 @@ course-card {
 .course-card:nth-child(2n) {
   margin-right: 0;
 }
-
-
-/* #course-grid-hidden.grid-list {
-  gap: 30px; 
-  margin: 0;
-  padding: 0;
-} */
-
-/* #course-grid-hidden.grid-list li {
-  margin-left: 15px;
-  margin-right: 15px;
-} */
-
-
 
 
 /*-----------------------------------*\
@@ -976,9 +982,19 @@ course-card {
 
   .container { max-width: 960px; }
 
-  .grid-list { grid-template-columns: repeat(4, 1fr); }
+  /* .grid-list { grid-template-columns: repeat(4, 1fr); }
 
   :is(.course, .blog) .grid-list { grid-template-columns: repeat(3, 1fr); }
+ */
+
+ .grid-list { 
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Stacked vertically */
+}
+
+.course .grid-list,
+.blog .grid-list {
+  grid-template-columns: repeat(1, 1fr); /* Set to a single column for .course and .blog */
+}
 
 
 

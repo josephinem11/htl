@@ -277,9 +277,9 @@ body {
   transition: var(--transition-2);
 }
 
-.btn:is(:hover, :focus)::before {
+/* .btn:is(:hover, :focus)::before {
   transform: translateX(0);
-}
+} */
 
 .img-holder {
   aspect-ratio: var(--width) / var(--height);

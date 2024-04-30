@@ -547,6 +547,10 @@
   
 }
 
+.course-card:last-child {
+  margin-right: 0; /* Remove margin for the last card */
+}
+
 .course-card .banner {
   position: relative;
 }
@@ -581,9 +585,13 @@
 }
 
 .course-card .card-content { 
-  padding: 25px; 
+  /* padding: 25px; 
   transition: background-color 0.3s ease;
-  border-radius: var(--radius-3);
+  border-radius: var(--radius-3); */
+    width: 100%; /* Make the card content full width */
+    padding: 25px; /* Add padding to the card content */
+    background-color: var(--white); /* Set background color */
+    border-radius: var(--radius-5); /* Add border-radius */
 }
 
 .course-card:hover .card-content {
@@ -628,11 +636,11 @@
   -webkit-line-clamp: 2; */
   display: block;
   overflow: hidden;
-  margin-block: 15px 8px;
+  margin-block: 7px 5px;
   transition: var(--transition-1);
   text-align: left;
   word-wrap: break-word; 
-  height: 3.6em; /* Adjust the height to fit the content */
+  height: 1.5em; /* Adjust the height to fit the content */
   line-height: 1.2em;
 }
 
@@ -698,7 +706,49 @@
   color: aliceblue;
 }
 
+.course-card .badge-container {
+  display: flex;
+  flex-wrap: wrap; /* Allow badges to wrap to the next line */
+  gap: 5px; /* Adjust the gap between badges as needed */
+}
 
+.course-card .badge {
+  background-color: var(--kappel_15);
+  color: var(--kappel);
+  line-height: 20px;
+  padding: 6px 8px;
+  margin-block-end: 3px;
+  font-size: 13px; /* Limit the font size */
+  display: inline-block; /* Change display to inline-block */
+  border-radius: var(--radius-3);
+}
+
+
+.course .btn {
+  margin-inline: auto;
+  margin-block-start: 60px;
+  color: aliceblue;
+}
+
+ul.grid-list {
+  margin-bottom: 30px;
+  display: hide;
+}
+
+ ul#course-grid-hidden.grid {
+  display: hide;
+}
+
+course-card {
+  /* Adjust the width to fit two cards in a row */
+  width: calc(50% - 20px); /* Assuming a 20px gap between cards */
+  margin-right: 20px; /* Add some margin between cards */
+}
+
+/* Adjust the margin for the last card in the row */
+.course-card:nth-child(2n) {
+  margin-right: 0;
+}
 
 
 /*-----------------------------------*\
@@ -931,10 +981,14 @@
 
   .container { max-width: 960px; }
 
-  .grid-list { grid-template-columns: repeat(4, 1fr); }
-
-  :is(.course, .blog) .grid-list { grid-template-columns: repeat(3, 1fr); }
-
+  .grid-list { 
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Stacked vertically */
+  }
+  
+  .course .grid-list,
+  .blog .grid-list {
+    grid-template-columns: repeat(1, 1fr); /* Set to a single column for .course and .blog */
+  }
 
 
   /**
