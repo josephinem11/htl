@@ -999,6 +999,7 @@ ul.navbar-list #navbar-link:hover{
   position: relative;
   border-top-right-radius: 80px;
   border-bottom-left-radius: 120px;
+  margin-top: 50px; 
 }
 
 .video .play-btn {
@@ -1043,6 +1044,7 @@ ul.navbar-list #navbar-link:hover{
   text-align: center;
   padding: 25px;
   border-radius: var(--radius-10);
+  margin-top: 20px;
 }
 
 .stats-card :is(.card-title, .card-text) {
@@ -1051,7 +1053,7 @@ ul.navbar-list #navbar-link:hover{
 
 .stats-card .card-title {
   color: hsl(var(--color));
-  font-size: var(--fs-2);
+  font-size: var(--fs-4);
   line-height: 1.1;
 }
 
