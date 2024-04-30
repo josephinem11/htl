@@ -233,7 +233,7 @@ body {
 }
 
 .section-title {
-  --color: var(--radical-red);
+  --color: blue;
   text-align: center;
 }
 
@@ -723,7 +723,7 @@ ul.navbar-list #navbar-link:hover{
 \*-----------------------------------*/
 
 .category .section-subtitle {
-  color: var(--radical-red);
+  color: var(--eerie-black-1);
 }
 
 .category .section-title {
@@ -852,7 +852,7 @@ ul.navbar-list #navbar-link:hover{
 \*-----------------------------------*/
 
 .course {
-  background-color: var(--isabelline);
+  background-color: #f7f7f7ea
 }
 
 .course-card {
