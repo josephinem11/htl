@@ -1,20 +1,5 @@
 'use strict';
 
-/**
- * Function to extract URL parameters
- */
- const getUrlParams = function (url) {
-  const params = {};
-  const searchParams = new URLSearchParams(new URL(url).search);
-  for (const [key, value] of searchParams) {
-    params[key] = value;
-  }
-  return params;
-}
-
-// Capture 'SESSION_ID' from URL
-const params = getUrlParams(window.location.href);
-const session_id = params['SESSION_ID'];
 
 /**
  * add event on element
